@@ -1,12 +1,18 @@
 import express from 'express'
 import cors from 'cors'
 
+import userRouter from "./routes/userRoutes.js";
+import productRouter from "./routes/productRoutes.js";
+
 const app = express()
 app.listen(8080, () =>{
     console.log("Server Started");
 });
 app.use(cors())
+app.use(express.json());
+app.use("/users", userRouter);
 
+app.use("/products", productRouter);
 app.get("/", (req,res) => {
     return res.send("Mod bits yesee");
 });
@@ -30,3 +36,4 @@ const userSchema = mongoose.Scheme({
 });
 
 const user = mongoose.model("User",userSchema);
+
