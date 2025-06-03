@@ -14,7 +14,7 @@ app.get("/greet",(req,res)=>(res.send("Greetings")))
 app.get("/name",(req,res)=>(res.send("Manikanta kiran golla")))
 app.get("/Weather",(req,res)=>(res.send("69 degree")))
 app.get("/Movie",(req,res)=>(res.send("Khaleja")))
-
+.
 
 app.get("/products", (req, res) => {
   const products = [
