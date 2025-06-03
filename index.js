@@ -8,7 +8,7 @@ app.listen(8080, () =>{
 app.use(cors())
 
 app.get("/", (req,res) => {
-    return res.send("Mod Gud");
+    return res.send("Mod bits yesee");
 });
 app.get("/greet",(req,res)=>(res.send("Greetings")))
 app.get("/name",(req,res)=>(res.send("Manikanta kiran golla")))
@@ -24,3 +24,9 @@ app.get("/products", (req, res) => {
   ];
   res.json(products);
 });
+
+const userSchema = mongoose.Scheme({
+  name:{type:String},
+});
+
+const user = mongoose.model("User",userSchema);
