@@ -16,20 +16,11 @@ userRouter.post("/register", async (req, res) => {
 userRouter.post("/login", async (req, res) => {
   const { email, pass } = req.body;
   const result = await userModel.findOne({ email, pass });
-  if (!result) return res.json({ message: "Invalid user or password"});
+  if (!result) return res.json({ message: "Invalid user or password" });
   return res.json(result);
+  console.log(result)
 });
 
-userRouter.get("/:id", async (req, res) => {
-  const email = req.params.id;
-  const result = await userModel.findOne({ email });
-  return res.json(result);
-});
 
-userRouter.get("/:id/name", async (req, res) => {
-  const email = req.params.id;
-  const result = await userModel.findOne({ email },{_id:0,name:1});
-  return res.json(result);
-});
 
 export default userRouter;
